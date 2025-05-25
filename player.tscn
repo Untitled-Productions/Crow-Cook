@@ -1,0 +1,51 @@
+[gd_scene load_steps=7 format=3 uid="uid://rdk2t05dflxw"]
+
+[ext_resource type="Texture2D" uid="uid://brhjgsi5tgy6k" path="res://Art/Characters/Scarecrow.svg" id="1_l6lhk"]
+[ext_resource type="Script" path="res://player.gd" id="1_q5i2y"]
+[ext_resource type="Resource" uid="uid://c8gu1q3f5gvdb" path="res://inventory/playerinv.tres" id="2_h4byw"]
+[ext_resource type="PackedScene" uid="uid://dkpmcod0wa1xh" path="res://inventory/inv_ui.tscn" id="4_nyjam"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3sovo"]
+size = Vector2(20, 46)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_1iuun"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_l6lhk")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Player" type="CharacterBody2D"]
+collision_mask = 129
+script = ExtResource("1_q5i2y")
+inv = ExtResource("2_h4byw")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 3)
+shape = SubResource("RectangleShape2D_3sovo")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(1.5, 1.5)
+position_smoothing_enabled = true
+position_smoothing_speed = 10.0
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(0, 3)
+shape = SubResource("RectangleShape2D_3sovo")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+sprite_frames = SubResource("SpriteFrames_1iuun")
+
+[node name="Inv_UI" parent="." instance=ExtResource("4_nyjam")]
+offset_left = -39.0
+offset_top = -89.0
+offset_right = 124.0
+offset_bottom = 38.0
+scale = Vector2(0.482975, 0.482975)

@@ -1,0 +1,47 @@
+[gd_scene load_steps=7 format=3 uid="uid://bpx0jopii6uke"]
+
+[ext_resource type="Script" path="res://stick.gd" id="1_1nw5c"]
+[ext_resource type="Texture2D" uid="uid://crm3ma2rhm3we" path="res://Art/Plants/Stick.png" id="1_5elgo"]
+[ext_resource type="Texture2D" uid="uid://chnvhc6u2q3hd" path="res://Art/Plants/Stickol.png" id="2_svjwr"]
+[ext_resource type="Resource" uid="uid://cauunq45boeu8" path="res://inventory/items/stick.tres" id="2_tc5hj"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ampci"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_dap0u"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_5elgo")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_svjwr")
+}],
+"loop": true,
+"name": &"defaultol",
+"speed": 5.0
+}]
+
+[node name="Stick" type="Node2D"]
+script = ExtResource("1_1nw5c")
+item = ExtResource("2_tc5hj")
+
+[node name="Enter" type="Area2D" parent="."]
+collision_layer = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Enter"]
+position = Vector2(6.48499e-05, 6.19888e-05)
+scale = Vector2(3.5, 3.5)
+shape = SubResource("RectangleShape2D_ampci")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_dap0u")
+
+[connection signal="area_entered" from="Enter" to="." method="_on_enter_area_entered"]
+[connection signal="area_exited" from="Enter" to="." method="_on_enter_area_exited"]
