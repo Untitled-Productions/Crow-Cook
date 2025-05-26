@@ -1,11 +1,11 @@
 extends Panel
 
-var playerBody: CharacterBody2D
+
+@export var inv: Inv
+@export var item: InvItem
 
 @onready var item_visual: Sprite2D = $CenterContainer/Panel/item_display
 @onready var amount_text: Label = $CenterContainer/Panel/Label
-
-signal update
 
 func visuals(slot: InvSlot):
 	if !slot.item:
@@ -19,15 +19,11 @@ func visuals(slot: InvSlot):
 		amount_text.text = str(slot.amount)
 
 
-func on_button_pressed(slot: InvSlot):
-	item_visual.visible = false
-	amount_text.visible = false
-	slot.amount = 0
-	print("false")
-	
 
 
-
-func _on_button_pressed() -> void:
+func on_button_pressed():
 	Global.pressed = true
 	print("true")
+	inv.export(item)
+	item = null
+	item_visual.texture = null

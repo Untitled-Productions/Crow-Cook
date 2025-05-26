@@ -22,7 +22,7 @@ func _ready() -> void:
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
+func _process(_delta):
 	recalc_path()
 	if is_visible:
 		handle_animation()
@@ -30,7 +30,7 @@ func _process(delta):
 
 
 func pick_up():
-	var animated = $AnimatedSprite2D
+	var _animated = $AnimatedSprite2D
 	if is_pick_up && Input.is_action_just_pressed("ui_grab"):
 		is_outline = false
 		is_visible = false
