@@ -25,6 +25,10 @@ func export(item: InvItem):
 		Global.pressed = false
 		if !itemslots.is_empty():
 			itemslots[0].amount -= itemslots[0].amount
-			itemslots.is_empty()
 			print("empty")
+		else:
+			var emptyslots = slots.filter(func(slot): return slot.item == null)
+			if !emptyslots.is_empty():
+				emptyslots[0].item = null
+				emptyslots[0].amount = 0
 	update.emit()
