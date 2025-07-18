@@ -31,6 +31,7 @@ layout_mode = 2
 
 [node name="Label" type="Label" parent="CenterContainer/Panel"]
 texture_filter = 1
+texture_repeat = 1
 custom_minimum_size = Vector2(14, 16)
 layout_mode = 0
 offset_left = -1.0
@@ -42,9 +43,10 @@ horizontal_alignment = 2
 
 [node name="Button" type="Button" parent="CenterContainer/Panel"]
 self_modulate = Color(1, 1, 1, 0)
+layout_mode = 0
 offset_left = -14.0
 offset_top = -13.0
 offset_right = 14.0
 offset_bottom = 14.0
 
-[connection signal="pressed" from="CenterContainer/Panel/Button" to="." method="on_button_pressed"]
+[connection signal="pressed" from="CenterContainer/Panel/Button" to="." method="_on_button_pressed"]

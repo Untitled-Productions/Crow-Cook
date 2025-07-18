@@ -13,10 +13,6 @@ func _ready():
 func update_slots():
 	for i in range(min(inv.slots.size(), slots.size())):
 		slots[i].visuals(inv.slots[i])
-		if Global.pressed == true:
-			slots[i].on_button_pressed()
-			Global.pressed = false
-			print("huh")
 
 func _process(delta):
 	if Input.is_action_just_pressed("ui_accept"):
