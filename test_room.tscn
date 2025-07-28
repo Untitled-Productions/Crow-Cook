@@ -30,7 +30,7 @@ tile_map_data = PackedByteArray("AAACAAIAAQAAAAAAAAACAAMAAQAAAAAAAAACAAQAAQAAAAA
 tile_set = SubResource("TileSet_mhai3")
 
 [node name="Rose" parent="." instance=ExtResource("3_xfmnm")]
-position = Vector2(1039, 631)
+position = Vector2(1086, 587)
 
 [node name="Rose2" parent="." instance=ExtResource("3_xfmnm")]
 position = Vector2(1350, 724)
@@ -48,7 +48,7 @@ position = Vector2(1382, 474)
 position = Vector2(888, 741)
 
 [node name="apple2" parent="." instance=ExtResource("5_1oy3f")]
-position = Vector2(1398, 593)
+position = Vector2(1467, 621)
 
 [node name="environmentalObjects" type="Node2D" parent="."]
 y_sort_enabled = true
