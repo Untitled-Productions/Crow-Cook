@@ -1,0 +1,47 @@
+[gd_scene load_steps=7 format=3 uid="uid://buowqbs5bobmv"]
+
+[ext_resource type="Script" uid="uid://bayjwtnxfbfhd" path="res://apple.gd" id="1_m587l"]
+[ext_resource type="Resource" uid="uid://o27up6xjblo4" path="res://inventory/items/apple.tres" id="2_2ymok"]
+[ext_resource type="Texture2D" uid="uid://cvp4tbj24eq66" path="res://Art/Plants/apple.png" id="2_8786u"]
+[ext_resource type="Texture2D" uid="uid://cmndr2bw80umd" path="res://Art/Plants/appleol.png" id="3_pns87"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_b30m7"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_pq66y"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_8786u")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_pns87")
+}],
+"loop": true,
+"name": &"defaultol",
+"speed": 5.0
+}]
+
+[node name="apple" type="Node2D"]
+script = ExtResource("1_m587l")
+item = ExtResource("2_2ymok")
+
+[node name="Enter" type="Area2D" parent="."]
+collision_layer = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Enter"]
+position = Vector2(6.48499e-05, 6.19888e-05)
+scale = Vector2(3.5, 3.5)
+shape = SubResource("CircleShape2D_b30m7")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_pq66y")
+
+[connection signal="area_entered" from="Enter" to="." method="_on_enter_area_entered"]
+[connection signal="area_exited" from="Enter" to="." method="_on_enter_area_exited"]

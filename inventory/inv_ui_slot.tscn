@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://cjs2uf5wm4wfr"]
 
-[ext_resource type="Script" path="res://inventory/inv_ui_slot.gd" id="1_0jc71"]
+[ext_resource type="Script" uid="uid://bvf1q3qvc0wb2" path="res://inventory/inv_ui_slot.gd" id="1_0jc71"]
 [ext_resource type="Texture2D" uid="uid://dkjxl78y0h55l" path="res://Inv-Slot.png" id="1_y1eqx"]
 [ext_resource type="Resource" uid="uid://c8gu1q3f5gvdb" path="res://inventory/playerinv.tres" id="2_4tu60"]
 
@@ -28,10 +28,10 @@ offset_bottom = 27.0
 layout_mode = 2
 
 [node name="item_display" type="Sprite2D" parent="CenterContainer/Panel"]
+scale = Vector2(1.5, 1.5)
 
 [node name="Label" type="Label" parent="CenterContainer/Panel"]
 texture_filter = 1
-texture_repeat = 1
 custom_minimum_size = Vector2(14, 16)
 layout_mode = 0
 offset_left = -1.0

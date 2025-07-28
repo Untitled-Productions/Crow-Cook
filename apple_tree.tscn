@@ -1,0 +1,60 @@
+[gd_scene load_steps=8 format=3 uid="uid://tp3f7ld06qee"]
+
+[ext_resource type="Script" uid="uid://cbtx1rma0j6ox" path="res://apple_tree.gd" id="1_7tgeu"]
+[ext_resource type="Texture2D" uid="uid://6d8lvtk5cshr" path="res://Art/Plants/Tree.png" id="1_ipi2i"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_8l6ya"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_ipi2i")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_31mqb"]
+radius = 21.5523
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_16ta8"]
+size = Vector2(49.3166, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ysl6s"]
+size = Vector2(33.7991, 20)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_7xqi5"]
+radius = 80.0
+
+[node name="apple_tree" type="StaticBody2D"]
+script = ExtResource("1_7tgeu")
+
+[node name="TreeSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(4, 4)
+sprite_frames = SubResource("SpriteFrames_8l6ya")
+offset = Vector2(0, -20)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_31mqb")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
+position = Vector2(-34.211, 8.93098)
+rotation = -0.354873
+shape = SubResource("RectangleShape2D_16ta8")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="."]
+position = Vector2(28.0259, 13.3605)
+rotation = 0.508717
+shape = SubResource("RectangleShape2D_ysl6s")
+
+[node name="pickable_area" type="Area2D" parent="."]
+position = Vector2(-1, -64)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="pickable_area"]
+position = Vector2(3, -16)
+shape = SubResource("CircleShape2D_7xqi5")
+
+[node name="growth_timer" type="Timer" parent="."]
+
+[connection signal="area_entered" from="pickable_area" to="." method="_on_pickable_area_area_entered"]
+[connection signal="area_exited" from="pickable_area" to="." method="_on_pickable_area_area_exited"]

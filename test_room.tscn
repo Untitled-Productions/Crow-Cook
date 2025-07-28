@@ -1,9 +1,11 @@
-[gd_scene load_steps=7 format=4 uid="uid://g8asfo32qpbm"]
+[gd_scene load_steps=9 format=4 uid="uid://g8asfo32qpbm"]
 
 [ext_resource type="PackedScene" uid="uid://rdk2t05dflxw" path="res://player.tscn" id="1_p8o0l"]
 [ext_resource type="Texture2D" uid="uid://42inxevjw8r0" path="res://Art/Background/Grass.png" id="2_731a0"]
 [ext_resource type="PackedScene" uid="uid://bn0def5t1iryi" path="res://rose.tscn" id="3_xfmnm"]
 [ext_resource type="PackedScene" uid="uid://bpx0jopii6uke" path="res://stick.tscn" id="4_rwvq4"]
+[ext_resource type="PackedScene" uid="uid://buowqbs5bobmv" path="res://apple.tscn" id="5_1oy3f"]
+[ext_resource type="PackedScene" uid="uid://bf44ox24g883a" path="res://tree.tscn" id="6_uw7lt"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_g5tqh"]
 texture = ExtResource("2_731a0")
@@ -19,13 +21,8 @@ sources/1 = SubResource("TileSetAtlasSource_g5tqh")
 
 [node name="Test Room" type="Node2D"]
 
-[node name="Player" parent="." instance=ExtResource("1_p8o0l")]
-z_index = 1
-position = Vector2(1152, 595)
-scale = Vector2(2, 2)
-
 [node name="TileMapLayer" type="TileMapLayer" parent="."]
-z_index = -1
+z_index = -5
 texture_filter = 1
 position = Vector2(-48, -48)
 scale = Vector2(2, 2)
@@ -33,7 +30,7 @@ tile_map_data = PackedByteArray("AAACAAIAAQAAAAAAAAACAAMAAQAAAAAAAAACAAQAAQAAAAA
 tile_set = SubResource("TileSet_mhai3")
 
 [node name="Rose" parent="." instance=ExtResource("3_xfmnm")]
-position = Vector2(1040, 613)
+position = Vector2(1039, 631)
 
 [node name="Rose2" parent="." instance=ExtResource("3_xfmnm")]
 position = Vector2(1350, 724)
@@ -46,3 +43,19 @@ position = Vector2(1150, 808)
 
 [node name="Stick2" parent="." instance=ExtResource("4_rwvq4")]
 position = Vector2(1382, 474)
+
+[node name="apple" parent="." instance=ExtResource("5_1oy3f")]
+position = Vector2(888, 741)
+
+[node name="apple2" parent="." instance=ExtResource("5_1oy3f")]
+position = Vector2(1398, 593)
+
+[node name="environmentalObjects" type="Node2D" parent="."]
+y_sort_enabled = true
+
+[node name="tree" parent="environmentalObjects" instance=ExtResource("6_uw7lt")]
+position = Vector2(1243, 404)
+
+[node name="Player" parent="environmentalObjects" instance=ExtResource("1_p8o0l")]
+position = Vector2(1182, 602)
+scale = Vector2(2, 2)

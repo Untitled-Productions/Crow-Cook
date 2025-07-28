@@ -17,6 +17,8 @@ func visuals(slot: InvSlot):
 		if slot.amount > 1:
 			amount_text.visible = true
 		amount_text.text = str(slot.amount)
+	if !slot.amount > 1:
+		amount_text.visible = false
 
 
 func _on_button_pressed():
@@ -24,7 +26,6 @@ func _on_button_pressed():
 	var inv_idx = int(path.split("inv_UI_slot", true, 2)[1]) - 1
 	var slot: InvSlot = inv.slots[inv_idx]
 	print("Clicked on slot ", inv_idx, ". Path: ", path)
-
 	if slot.amount > 0:
 		# TODO: Use the item somehow
 		slot.amount = max(slot.amount - 1, 0)

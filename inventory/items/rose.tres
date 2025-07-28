@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="InvItem" load_steps=3 format=3 uid="uid://dlgkxwiqsqwm6"]
 
-[ext_resource type="Script" path="res://inventory/inventory_item.gd" id="1_b23fd"]
+[ext_resource type="Script" uid="uid://wyfsmkmggydl" path="res://inventory/inventory_item.gd" id="1_b23fd"]
 [ext_resource type="Texture2D" uid="uid://chjjey7o30vao" path="res://Art/Plants/Rose.png" id="2_xx6s6"]
 
 [resource]

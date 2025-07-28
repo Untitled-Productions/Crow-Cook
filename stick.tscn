@@ -1,11 +1,11 @@
 [gd_scene load_steps=7 format=3 uid="uid://bpx0jopii6uke"]
 
-[ext_resource type="Script" path="res://stick.gd" id="1_1nw5c"]
+[ext_resource type="Script" uid="uid://dci6x38dm2sy1" path="res://stick.gd" id="1_1nw5c"]
 [ext_resource type="Texture2D" uid="uid://crm3ma2rhm3we" path="res://Art/Plants/Stick.png" id="1_5elgo"]
 [ext_resource type="Texture2D" uid="uid://chnvhc6u2q3hd" path="res://Art/Plants/Stickol.png" id="2_svjwr"]
 [ext_resource type="Resource" uid="uid://cauunq45boeu8" path="res://inventory/items/stick.tres" id="2_tc5hj"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_ampci"]
+[sub_resource type="CircleShape2D" id="CircleShape2D_m35i1"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_dap0u"]
 animations = [{
@@ -36,7 +36,7 @@ collision_layer = 0
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Enter"]
 position = Vector2(6.48499e-05, 6.19888e-05)
 scale = Vector2(3.5, 3.5)
-shape = SubResource("RectangleShape2D_ampci")
+shape = SubResource("CircleShape2D_m35i1")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
