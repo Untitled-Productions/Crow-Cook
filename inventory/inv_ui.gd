@@ -19,9 +19,11 @@ func _process(delta):
 		if is_open:
 			close()
 			Global.invop = false
+			Global.mouseani.visible = false
 		else:
 			open()
 			Global.invop = true
+			Global.mouseani.visible = true
 
 func open():
 	self.visible = true

@@ -32,10 +32,9 @@ func _on_button_pressed():
 		Global.mouseani.sprite_frames.add_frame("item", slot.item.texture)
 		slot.amount = max(slot.amount - 1, 0)
 		if slot.amount == 0:
+			item_visual.visible = false
 			slot.item = null
 			print("None left!")
 		else:
 			print(slot.amount, " items left in slot ", inv_idx)
 		visuals(slot)
-	if slot.amount == 0 and Global.mouseani.sprite_frames.has_animation("item"):
-		item_visual.texture = Global.mouseani.sprite_frames.get_frame_texture("item", 0)
