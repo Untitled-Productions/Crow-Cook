@@ -5,6 +5,8 @@ extends Panel
 
 @onready var item_visual: Sprite2D = $CenterContainer/Panel/item_display
 @onready var amount_text: Label = $CenterContainer/Panel/Label
+@onready var above = false
+@onready var grabbed = false
 
 func visuals(slot: InvSlot):
 	if !slot.item:
@@ -28,13 +30,32 @@ func _on_button_pressed():
 	print("Clicked on slot ", inv_idx, ". Path: ", path)
 	if slot.amount > 0:
 		# TODO: Use the item somehow
-		Global.mouseani.sprite_frames.remove_frame("item", 0)
-		Global.mouseani.sprite_frames.add_frame("item", slot.item.texture)
-		slot.amount = max(slot.amount - 1, 0)
+		if grabbed == false:
+			Global.mouseani.sprite_frames.remove_frame("item", 0)
+			Global.mouseani.sprite_frames.add_frame("item", slot.item.texture)
+			Global.mouseani.item = slot.item
+			grabbed = true
+		if slot.amount > 0 and grabbed == true:
+			if slot.amount >= 1:
+				slot.amount = max(slot.amount - 1, 0)
+			grabbed = false
+			visuals(slot)
 		if slot.amount == 0:
-			item_visual.visible = false
+			slot.item.texture = null
 			slot.item = null
 			print("None left!")
+			visuals(slot)
 		else:
 			print(slot.amount, " items left in slot ", inv_idx)
+		visuals(slot)
+	if slot.amount == 0:
+		slot.item = Global.mouseani.item
+		slot.amount += 1
+		Global.mouseani.item = null
+		Global.mouseani.sprite_frames.remove_frame("item", 0)
+		above = true
+		visuals(slot)
+	if slot.amount > 0 and above == true and grabbed == true:
+		Global.mouseani.item = null
+		Global.mouseani.sprite_frames.remove_frame("item", 0)
 		visuals(slot)
