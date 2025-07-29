@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=4 uid="uid://g8asfo32qpbm"]
+[gd_scene load_steps=10 format=4 uid="uid://g8asfo32qpbm"]
 
 [ext_resource type="PackedScene" uid="uid://rdk2t05dflxw" path="res://player.tscn" id="1_p8o0l"]
 [ext_resource type="Texture2D" uid="uid://42inxevjw8r0" path="res://Art/Background/Grass.png" id="2_731a0"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://bpx0jopii6uke" path="res://stick.tscn" id="4_rwvq4"]
 [ext_resource type="PackedScene" uid="uid://buowqbs5bobmv" path="res://apple.tscn" id="5_1oy3f"]
 [ext_resource type="PackedScene" uid="uid://bf44ox24g883a" path="res://tree.tscn" id="6_uw7lt"]
+[ext_resource type="PackedScene" uid="uid://b3ekgwpebpgfw" path="res://mouse_test.tscn" id="7_f0xav"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_g5tqh"]
 texture = ExtResource("2_731a0")
@@ -59,3 +60,7 @@ position = Vector2(1243, 404)
 [node name="Player" parent="environmentalObjects" instance=ExtResource("1_p8o0l")]
 position = Vector2(1182, 602)
 scale = Vector2(2, 2)
+
+[node name="CharacterBody2D" parent="." instance=ExtResource("7_f0xav")]
+visibility_layer = 1
+position = Vector2(1035, 704)

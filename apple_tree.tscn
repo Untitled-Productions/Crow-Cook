@@ -1,16 +1,25 @@
-[gd_scene load_steps=8 format=3 uid="uid://tp3f7ld06qee"]
+[gd_scene load_steps=9 format=3 uid="uid://tp3f7ld06qee"]
 
 [ext_resource type="Script" uid="uid://cbtx1rma0j6ox" path="res://apple_tree.gd" id="1_7tgeu"]
 [ext_resource type="Texture2D" uid="uid://6d8lvtk5cshr" path="res://Art/Plants/Tree.png" id="1_ipi2i"]
+[ext_resource type="Texture2D" uid="uid://ch7g264sj4tw5" path="res://Art/Plants/Grown-Apple-Tree.png" id="2_idwsj"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_8l6ya"]
 animations = [{
 "frames": [{
 "duration": 1.0,
+"texture": ExtResource("2_idwsj")
+}],
+"loop": true,
+"name": &"apples",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": ExtResource("1_ipi2i")
 }],
 "loop": true,
-"name": &"default",
+"name": &"noapples",
 "speed": 5.0
 }]
 
@@ -32,6 +41,7 @@ script = ExtResource("1_7tgeu")
 [node name="TreeSprite2D" type="AnimatedSprite2D" parent="."]
 scale = Vector2(4, 4)
 sprite_frames = SubResource("SpriteFrames_8l6ya")
+animation = &"noapples"
 offset = Vector2(0, -20)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
