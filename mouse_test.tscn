@@ -1,17 +1,22 @@
-[gd_scene load_steps=6 format=3 uid="uid://b3ekgwpebpgfw"]
+[gd_scene load_steps=7 format=3 uid="uid://b3ekgwpebpgfw"]
 
 [ext_resource type="Script" uid="uid://dayb4i5a7e2y4" path="res://mouse_test.gd" id="1_8x0ln"]
 [ext_resource type="Script" uid="uid://4ixbt7lh1xw5" path="res://mouse_anim.gd" id="2_80i5f"]
-[ext_resource type="Script" uid="uid://wyfsmkmggydl" path="res://inventory/inventory_item.gd" id="3_80i5f"]
+[ext_resource type="Script" uid="uid://cyhg1ya2veupa" path="res://Inv_slot.gd" id="3_80i5f"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_e8cjt"]
 
+[sub_resource type="Resource" id="Resource_80i5f"]
+script = ExtResource("3_80i5f")
+amount = 0
+metadata/_custom_type_script = "uid://cyhg1ya2veupa"
+
 [sub_resource type="Resource" id="Resource_q0y14"]
 script = ExtResource("3_80i5f")
-name = ""
-metadata/_custom_type_script = "uid://wyfsmkmggydl"
+amount = 0
+metadata/_custom_type_script = "uid://cyhg1ya2veupa"
 
-[node name="CharacterBody2D" type="CharacterBody2D"]
+[node name="MouseFollow" type="CharacterBody2D"]
 visibility_layer = 16385
 z_index = 9
 scale = Vector2(2, 2)
@@ -21,4 +26,13 @@ script = ExtResource("1_8x0ln")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_e8cjt")
 script = ExtResource("2_80i5f")
-item = SubResource("Resource_q0y14")
+item = SubResource("Resource_80i5f")
+amount = SubResource("Resource_q0y14")
+
+[node name="Label" type="Label" parent="AnimatedSprite2D"]
+offset_left = 1.0
+offset_top = -1.5
+offset_right = 13.0
+offset_bottom = 12.5
+theme_override_font_sizes/font_size = 10
+text = "99"

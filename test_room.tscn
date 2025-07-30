@@ -58,9 +58,8 @@ y_sort_enabled = true
 position = Vector2(1243, 404)
 
 [node name="Player" parent="environmentalObjects" instance=ExtResource("1_p8o0l")]
-position = Vector2(1182, 602)
+position = Vector2(1219, 562)
 scale = Vector2(2, 2)
 
-[node name="CharacterBody2D" parent="." instance=ExtResource("7_f0xav")]
-visibility_layer = 1
-position = Vector2(1035, 704)
+[node name="MouseFollow" parent="." instance=ExtResource("7_f0xav")]
+position = Vector2(1173, 641)
