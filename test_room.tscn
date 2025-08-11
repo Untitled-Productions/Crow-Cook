@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=4 uid="uid://g8asfo32qpbm"]
+[gd_scene load_steps=11 format=4 uid="uid://bkjg51iaogqd1"]
 
 [ext_resource type="PackedScene" uid="uid://rdk2t05dflxw" path="res://player.tscn" id="1_p8o0l"]
 [ext_resource type="Texture2D" uid="uid://42inxevjw8r0" path="res://Art/Background/Grass.png" id="2_731a0"]
@@ -59,11 +59,7 @@ y_sort_enabled = true
 position = Vector2(1243, 404)
 
 [node name="Player" parent="environmentalObjects" instance=ExtResource("1_p8o0l")]
-<<<<<<< HEAD
-position = Vector2(1236, 567)
-=======
 position = Vector2(1239, 561)
->>>>>>> fbec2be9eea116b2c2b9cceb1abd16869c491ef1
 scale = Vector2(2, 2)
 
 [node name="MouseFollow" parent="." instance=ExtResource("7_f0xav")]
