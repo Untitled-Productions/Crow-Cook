@@ -58,7 +58,7 @@ y_sort_enabled = true
 position = Vector2(1243, 404)
 
 [node name="Player" parent="environmentalObjects" instance=ExtResource("1_p8o0l")]
-position = Vector2(1236, 568)
+position = Vector2(1239, 561)
 scale = Vector2(2, 2)
 
 [node name="MouseFollow" parent="." instance=ExtResource("7_f0xav")]
