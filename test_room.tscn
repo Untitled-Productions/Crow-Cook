@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=4 uid="uid://g8asfo32qpbm"]
+[gd_scene load_steps=11 format=4 uid="uid://g8asfo32qpbm"]
 
 [ext_resource type="PackedScene" uid="uid://rdk2t05dflxw" path="res://player.tscn" id="1_p8o0l"]
 [ext_resource type="Texture2D" uid="uid://42inxevjw8r0" path="res://Art/Background/Grass.png" id="2_731a0"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://buowqbs5bobmv" path="res://apple.tscn" id="5_1oy3f"]
 [ext_resource type="PackedScene" uid="uid://bf44ox24g883a" path="res://tree.tscn" id="6_uw7lt"]
 [ext_resource type="PackedScene" uid="uid://b3ekgwpebpgfw" path="res://mouse_test.tscn" id="7_f0xav"]
+[ext_resource type="Script" uid="uid://cyd2xm0scfu52" path="res://day_night_cycle.gd" id="8_3vbl4"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_g5tqh"]
 texture = ExtResource("2_731a0")
@@ -63,3 +64,16 @@ scale = Vector2(2, 2)
 
 [node name="MouseFollow" parent="." instance=ExtResource("7_f0xav")]
 position = Vector2(1173, 641)
+
+[node name="DirectionalLight2D" type="DirectionalLight2D" parent="."]
+position = Vector2(645, 587)
+energy = 0.0
+blend_mode = 1
+max_distance = 1195.0
+script = ExtResource("8_3vbl4")
+
+[node name="Timer" type="Timer" parent="DirectionalLight2D"]
+wait_time = 10.0
+autostart = true
+
+[connection signal="timeout" from="DirectionalLight2D/Timer" to="DirectionalLight2D" method="_on_timer_timeout"]

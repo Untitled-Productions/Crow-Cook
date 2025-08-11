@@ -37,8 +37,7 @@ func _on_button_pressed():
 				Global.mouseani.mouse_amount.text = str(slot.amount)
 			grabbed = true
 		if slot.amount > 0 and grabbed == true:
-			if slot.amount > 1:
-				slot.amount = max(slot.amount - 1, 0)
+			slot.amount = max(slot.amount - 1, 0)
 			grabbed = false
 			Global.mouseani.mouse_amount.visible = false
 			visuals(slot)
