@@ -37,7 +37,7 @@ func _process(_delta):
 
 func pick_up():
 	var _animated = $AnimatedSprite2D
-	if is_pick_up && Input.is_action_just_pressed("ui_grab"):
+	if is_pick_up && Input.is_action_just_pressed("ui_grab") && !$AnimationPlayer.current_animation == "fallingfromtree":
 		is_outline = false
 		is_visible = false
 		$AnimationPlayer.play("fade")
