@@ -11,4 +11,4 @@ func _ready():
 	SpriteFrame.add_animation("item")
 	SpriteFrame.add_frame("item", item)
 	ani.play("item")
-	Global.mouseani.mouse_amount.visible = false
+	mouse_amount.visible = false

@@ -27,7 +27,7 @@ animations = [{
 radius = 21.5523
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_7xqi5"]
-radius = 114.07
+radius = 147.0
 
 [node name="apple_tree" type="StaticBody2D"]
 y_sort_enabled = true
@@ -48,7 +48,7 @@ collision_layer = 2
 collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="pickable_area"]
-position = Vector2(1, -5)
+position = Vector2(5, -2)
 shape = SubResource("CircleShape2D_7xqi5")
 
 [node name="growth_timer" type="Timer" parent="."]
