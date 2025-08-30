@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://bf44ox24g883a"]
+[gd_scene load_steps=5 format=3 uid="uid://bf44ox24g883a"]
 
 [ext_resource type="Texture2D" uid="uid://6d8lvtk5cshr" path="res://Art/Plants/Tree.png" id="1_16q7g"]
 [ext_resource type="Script" uid="uid://dsckyp20kw617" path="res://tree.gd" id="1_lj6a4"]
@@ -17,12 +17,6 @@ animations = [{
 [sub_resource type="CircleShape2D" id="CircleShape2D_8sqyr"]
 radius = 21.5523
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_m71hb"]
-size = Vector2(49.3166, 20)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_6srwv"]
-size = Vector2(33.7991, 20)
-
 [node name="tree" type="StaticBody2D"]
 y_sort_enabled = true
 script = ExtResource("1_lj6a4")
@@ -34,13 +28,3 @@ offset = Vector2(0, -20)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_8sqyr")
-
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
-position = Vector2(-34.211, 8.93098)
-rotation = -0.354873
-shape = SubResource("RectangleShape2D_m71hb")
-
-[node name="CollisionShape2D3" type="CollisionShape2D" parent="."]
-position = Vector2(28.0259, 13.3605)
-rotation = 0.508717
-shape = SubResource("RectangleShape2D_6srwv")
