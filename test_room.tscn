@@ -4,10 +4,10 @@
 [ext_resource type="Texture2D" uid="uid://42inxevjw8r0" path="res://Art/Background/Grass.png" id="2_731a0"]
 [ext_resource type="PackedScene" uid="uid://bn0def5t1iryi" path="res://rose.tscn" id="3_xfmnm"]
 [ext_resource type="PackedScene" uid="uid://bpx0jopii6uke" path="res://stick.tscn" id="4_rwvq4"]
-[ext_resource type="PackedScene" uid="uid://buowqbs5bobmv" path="res://apple.tscn" id="5_1oy3f"]
 [ext_resource type="PackedScene" uid="uid://bf44ox24g883a" path="res://tree.tscn" id="6_uw7lt"]
 [ext_resource type="PackedScene" uid="uid://b3ekgwpebpgfw" path="res://mouse_test.tscn" id="7_f0xav"]
 [ext_resource type="Script" uid="uid://cyd2xm0scfu52" path="res://day_night_cycle.gd" id="8_3vbl4"]
+[ext_resource type="PackedScene" uid="uid://tp3f7ld06qee" path="res://apple_tree.tscn" id="9_6r6vx"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_g5tqh"]
 texture = ExtResource("2_731a0")
@@ -46,14 +46,11 @@ position = Vector2(1150, 808)
 [node name="Stick2" parent="." instance=ExtResource("4_rwvq4")]
 position = Vector2(1382, 474)
 
-[node name="apple" parent="." instance=ExtResource("5_1oy3f")]
-position = Vector2(888, 741)
-
-[node name="apple2" parent="." instance=ExtResource("5_1oy3f")]
-position = Vector2(1467, 621)
-
 [node name="environmentalObjects" type="Node2D" parent="."]
 y_sort_enabled = true
+
+[node name="apple_tree" parent="environmentalObjects" instance=ExtResource("9_6r6vx")]
+position = Vector2(854, 585)
 
 [node name="tree" parent="environmentalObjects" instance=ExtResource("6_uw7lt")]
 position = Vector2(1243, 404)

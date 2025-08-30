@@ -28,3 +28,6 @@ func _physics_process(delta: float) -> void:
 
 func collect(item):
 	inv.insert(item)
+
+func player():
+	pass

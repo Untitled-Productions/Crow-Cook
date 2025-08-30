@@ -5,6 +5,7 @@ extends Node2D
 var is_outline: bool
 var is_pick_up: bool
 var is_visible: bool
+@export var is_on_tree: bool
 
 var apple = self
 var target_node = null
@@ -16,10 +17,15 @@ var player = null
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	fallfromtree()
 	is_outline = false
 	is_pick_up = false
 	is_visible = true
+	is_on_tree = false
 
+func fallfromtree():
+	$AnimationPlayer.play("fallingfromtree")
+	await get_tree().create_timer(1.5).timeout
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
@@ -34,14 +40,14 @@ func pick_up():
 	if is_pick_up && Input.is_action_just_pressed("ui_grab"):
 		is_outline = false
 		is_visible = false
-		apple.visible = false
+		$AnimationPlayer.play("fade")
 		player.collect(item)
 		entered.monitoring = false
 
 
 func handle_animation():
 	var animated = $AnimatedSprite2D
-	if is_outline:
+	if is_outline && !$AnimationPlayer.current_animation == "fallingfromtree":
 		animated.play("defaultol")
 	else:
 		animated.play("default")
