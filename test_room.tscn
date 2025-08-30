@@ -50,7 +50,7 @@ position = Vector2(1382, 474)
 y_sort_enabled = true
 
 [node name="apple_tree" parent="environmentalObjects" instance=ExtResource("9_6r6vx")]
-position = Vector2(854, 585)
+position = Vector2(882, 626)
 
 [node name="tree" parent="environmentalObjects" instance=ExtResource("6_uw7lt")]
 position = Vector2(1243, 404)

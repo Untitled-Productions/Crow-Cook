@@ -1,6 +1,6 @@
 extends StaticBody2D
 
-var state = "no apples" # no apples, apples
+var state = "apples" # no apples, apples
 var player_in_area = false
 
 var apple = preload("res://apple.tscn")
