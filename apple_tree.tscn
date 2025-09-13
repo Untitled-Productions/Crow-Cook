@@ -27,7 +27,7 @@ animations = [{
 radius = 21.5523
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_7xqi5"]
-radius = 147.0
+radius = 128.004
 
 [node name="apple_tree" type="StaticBody2D"]
 y_sort_enabled = true
