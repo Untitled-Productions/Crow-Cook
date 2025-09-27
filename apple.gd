@@ -4,7 +4,7 @@ extends Node2D
 
 var is_outline: bool
 var is_pick_up: bool
-var is_visible: bool
+var _is_visible: bool
 @export var is_on_tree: bool
 
 var apple = self
@@ -20,7 +20,7 @@ func _ready() -> void:
 	fallfromtree()
 	is_outline = false
 	is_pick_up = false
-	is_visible = true
+	_is_visible = true
 	is_on_tree = false
 
 func fallfromtree():
@@ -39,7 +39,7 @@ func pick_up():
 	var _animated = $AnimatedSprite2D
 	if is_pick_up && Input.is_action_just_pressed("ui_grab") && !$AnimationPlayer.current_animation == "fallingfromtree":
 		is_outline = false
-		is_visible = false
+		_is_visible = false
 		$AnimationPlayer.play("fade")
 		player.collect(item)
 		entered.monitoring = false

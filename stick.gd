@@ -4,7 +4,7 @@ extends Node2D
 
 var is_outline: bool
 var is_pick_up: bool
-var is_visible: bool
+var _is_visible: bool
 
 var stick = self
 var target_node = null
@@ -18,7 +18,7 @@ var player = null
 func _ready() -> void:
 	is_outline = false
 	is_pick_up = false
-	is_visible = true
+	_is_visible = true
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -33,7 +33,7 @@ func pick_up():
 	var _animated = $AnimatedSprite2D
 	if is_pick_up && Input.is_action_just_pressed("ui_grab"):
 		is_outline = false
-		is_visible = false
+		_is_visible = false
 		stick.visible = false
 		player.collect(item)
 		entered.monitoring = false
