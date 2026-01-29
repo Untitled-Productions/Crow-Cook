@@ -1,9 +1,11 @@
-[gd_resource type="Resource" script_class="InvItem" load_steps=3 format=3 uid="uid://o27up6xjblo4"]
+[gd_resource type="Resource" script_class="InventoryItem" load_steps=3 format=3 uid="uid://bbg2dy3thujj1"]
 
-[ext_resource type="Script" uid="uid://wyfsmkmggydl" path="res://inventory/inventory_item.gd" id="1_pqvxh"]
-[ext_resource type="Texture2D" uid="uid://cvp4tbj24eq66" path="res://Art/Plants/apple.png" id="2_o81t6"]
+[ext_resource type="Script" uid="uid://cxqa7ikooepgm" path="res://inventory/inventoryItem.gd" id="1_cd3v3"]
+[ext_resource type="Texture2D" uid="uid://cvp4tbj24eq66" path="res://Art/Items/Unoutlined/Plants/apple.png" id="2_o81t6"]
 
 [resource]
-script = ExtResource("1_pqvxh")
+script = ExtResource("1_cd3v3")
 name = "apple"
 texture = ExtResource("2_o81t6")
+maxAmountPerStack = 3
+metadata/_custom_type_script = "uid://cxqa7ikooepgm"

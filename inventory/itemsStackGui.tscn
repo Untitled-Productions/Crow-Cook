@@ -1,0 +1,17 @@
+[gd_scene load_steps=2 format=3 uid="uid://dv64w3fcar3yj"]
+
+[ext_resource type="Script" uid="uid://bseij5cl2lwqj" path="res://inventory/items_stack_gui.gd" id="1_pk4gi"]
+
+[node name="Panel" type="Panel"]
+script = ExtResource("1_pk4gi")
+
+[node name="item" type="Sprite2D" parent="."]
+scale = Vector2(2, 2)
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_right = 14.0
+offset_bottom = 16.0
+theme_override_font_sizes/font_size = 11
+text = "99"
+horizontal_alignment = 2

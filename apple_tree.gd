@@ -3,7 +3,7 @@ extends StaticBody2D
 var state = "apples" # no apples, apples
 var player_in_area = false
 
-var apple = preload("res://apple.tscn")
+var apple = preload("res://inventory/items/scenes/apple.tscn")
 
 func _ready():
 	if state == "no apples":
@@ -37,5 +37,7 @@ func drop_apple():
 	var apple_instance = apple.instantiate()
 	apple_instance.global_position = $Marker2D.global_position
 	get_parent().add_child(apple_instance)
+	apple_instance.is_on_tree = true
+	
 	await get_tree().create_timer(3).timeout
 	$growth_timer.start()

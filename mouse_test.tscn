@@ -1,18 +1,25 @@
-[gd_scene load_steps=8 format=3 uid="uid://b3ekgwpebpgfw"]
+[gd_scene load_steps=4 format=3 uid="uid://jstknxmpx1vf"]
 
-[ext_resource type="Script" uid="uid://dayb4i5a7e2y4" path="res://mouse_test.gd" id="1_8x0ln"]
-[ext_resource type="Script" uid="uid://4ixbt7lh1xw5" path="res://mouse_anim.gd" id="2_80i5f"]
-[ext_resource type="Script" uid="uid://cyhg1ya2veupa" path="res://Inv_slot.gd" id="3_80i5f"]
+[sub_resource type="GDScript" id="GDScript_f13ko"]
+script/source = "extends CharacterBody2D
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_e8cjt"]
+@onready var mouse = self
 
-[sub_resource type="Resource" id="Resource_80i5f"]
-script = ExtResource("3_80i5f")
-metadata/_custom_type_script = "uid://cyhg1ya2veupa"
 
-[sub_resource type="Resource" id="Resource_q0y14"]
-script = ExtResource("3_80i5f")
-metadata/_custom_type_script = "uid://cyhg1ya2veupa"
+func _physics_process(delta: float) -> void:
+	mouse.global_position = get_global_mouse_position()
+	move_and_slide()
+"
+
+[sub_resource type="GDScript" id="GDScript_5keuc"]
+script/source = "extends Sprite2D
+
+@onready var mouse_amount: Label = $Label
+
+func _ready():
+	Global.mouseani = self
+	mouse_amount.visible = false
+"
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_80i5f"]
 radius = 5.5
@@ -22,13 +29,10 @@ visibility_layer = 16385
 z_index = 9
 scale = Vector2(2, 2)
 floor_constant_speed = true
-script = ExtResource("1_8x0ln")
+script = SubResource("GDScript_f13ko")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-sprite_frames = SubResource("SpriteFrames_e8cjt")
-script = ExtResource("2_80i5f")
-item = SubResource("Resource_80i5f")
-amount = SubResource("Resource_q0y14")
+[node name="AnimatedSprite2D" type="Sprite2D" parent="."]
+script = SubResource("GDScript_5keuc")
 
 [node name="Label" type="Label" parent="AnimatedSprite2D"]
 offset_left = 1.0

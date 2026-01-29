@@ -1,33 +1,31 @@
 extends Resource
 
-class_name Inv
+class_name Inventory
 
-signal update
+signal updated
 
-var rng = RandomNumberGenerator.new()
-var random_int = rng.randi_range(2, 4)
+@export var slots: Array[InventorySlot]
 
-@export var slots: Array[InvSlot]
+func insert(item: InventoryItem):
+	for slot in slots:
+		if slot.item == item && slot.amount < item.maxAmountPerStack:
+			slot.amount += 1
+			updated.emit()
+			return
+	
+	for i in range(slots.size()):
+		if !slots[i].item:
+			slots[i].item = item
+			slots[i].amount = 1
+			updated.emit()
+			return
 
-func _ready():
-	randomize()
+func removeItemAtIndex(index: int):
+	slots[index] = InventorySlot.new()
+	
 
-func insert(item: InvItem):
-	var itemslots = slots.filter(func(slot): return slot.item == item)
-	rng.randi()
-	if !itemslots.is_empty():
-		if !item.name == "apple":
-			itemslots[0].amount += 1
-		else:
-			itemslots[0].amount += random_int
-			random_int = rng.randi_range(2, 4)
-	else:
-		var emptyslots = slots.filter(func(slot): return slot.item == null)
-		if !emptyslots.is_empty():
-			emptyslots[0].item = item
-			if !item.name == "apple":
-				emptyslots[0].amount = 1
-			else:
-				emptyslots[0].amount += random_int
-				random_int = rng.randi_range(2, 4)
-	update.emit()
+func insertSlot(index: int, inventorySlot: InventorySlot):
+	var oldIndex: int = slots.find(inventorySlot)
+	removeItemAtIndex(oldIndex)
+	
+	slots[index] = inventorySlot

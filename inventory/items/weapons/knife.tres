@@ -1,9 +1,0 @@
-[gd_resource type="Resource" script_class="InvItemWeapon" load_steps=2 format=3 uid="uid://1to2pqiugc8s"]
-
-[ext_resource type="Script" uid="uid://d1xlv78bcemv0" path="res://inventory_item_weapon.gd" id="1_yh17h"]
-
-[resource]
-script = ExtResource("1_yh17h")
-name = "knife"
-damage = 3
-metadata/_custom_type_script = "uid://d1xlv78bcemv0"

@@ -1,10 +1,12 @@
 extends CharacterBody2D
 
 
+
 const SPEED = 300.0
 
+@onready var areacollect
 
-@export var inv: Inv
+@export var inventory: Inventory
 
 func _ready():
 	Global.playerBody = self
@@ -26,8 +28,18 @@ func _physics_process(delta: float) -> void:
 			velocity.y = move_toward(velocity.y, 0, SPEED)
 		move_and_slide()
 
-func collect(item):
-	inv.insert(item)
-
 func player():
 	pass
+
+func _process(delta):
+	Global.playerBody = self
+	SaveManager.SavePos = self.global_position
+	collecting(areacollect)
+
+func _on_area_2d_area_entered(area):
+	if area.has_method("collect"):
+		areacollect = area
+
+func collecting(area):
+	if area != null and Input.is_action_just_pressed("ui_grab"):
+		area.collect(inventory)

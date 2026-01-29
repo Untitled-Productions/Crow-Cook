@@ -52,7 +52,7 @@ position = Vector2(5, -2)
 shape = SubResource("CircleShape2D_7xqi5")
 
 [node name="growth_timer" type="Timer" parent="."]
-wait_time = 25.0
+wait_time = 5.0
 
 [node name="Marker2D" type="Marker2D" parent="."]
 position = Vector2(52, -93)

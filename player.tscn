@@ -1,9 +1,8 @@
-[gd_scene load_steps=8 format=3 uid="uid://rdk2t05dflxw"]
+[gd_scene load_steps=7 format=3 uid="uid://rdk2t05dflxw"]
 
 [ext_resource type="Texture2D" uid="uid://brhjgsi5tgy6k" path="res://Art/Characters/Scarecrow.svg" id="1_l6lhk"]
 [ext_resource type="Script" uid="uid://v3gy80el3tf8" path="res://player.gd" id="1_q5i2y"]
-[ext_resource type="Resource" uid="uid://c8gu1q3f5gvdb" path="res://inventory/playerinv.tres" id="2_h4byw"]
-[ext_resource type="PackedScene" uid="uid://dkpmcod0wa1xh" path="res://inventory/inv_ui.tscn" id="4_nyjam"]
+[ext_resource type="Resource" uid="uid://qhx8pj0bu43v" path="res://inventory/items/playerInventory.tres" id="2_i3pqv"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_awbqv"]
 height = 22.0
@@ -28,7 +27,7 @@ y_sort_enabled = true
 collision_layer = 3
 collision_mask = 129
 script = ExtResource("1_q5i2y")
-inv = ExtResource("2_h4byw")
+inventory = ExtResource("2_i3pqv")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -2)
@@ -49,15 +48,9 @@ collision_mask = 3
 position = Vector2(0, 2)
 shape = SubResource("CapsuleShape2D_bskpe")
 
-[node name="Inv_UI" parent="." instance=ExtResource("4_nyjam")]
-z_index = 8
-offset_left = -39.0
-offset_top = -110.0
-offset_right = 124.0
-offset_bottom = 17.0
-scale = Vector2(0.482975, 0.482975)
-
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
 sprite_frames = SubResource("SpriteFrames_1iuun")
 offset = Vector2(0, -16)
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
